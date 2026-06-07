@@ -6,7 +6,7 @@
 /*   By: sruff <sruff@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 13:30:23 by sruff             #+#    #+#             */
-/*   Updated: 2026/06/05 13:45:52 by sruff            ###   ########.fr       */
+/*   Updated: 2026/06/07 17:19:29 by sruff            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define BITCOINEXCHANGE_HPP
 
 # include <string>
+# include <map>
 
 class BitcoinExchange
 {
@@ -22,12 +23,14 @@ class BitcoinExchange
 	BitcoinExchange(const BitcoinExchange &other);
 	BitcoinExchange &operator=(const BitcoinExchange &other);
 	~BitcoinExchange();
+	
+	using Database = std::map<std::string, double>;
 
-	void loadDatabase(const std::string &path);
-	void processInput(const std::string &path);
+	Database loadDatabase(const std::string &path);
+	bool processInput(const std::string &path);
 
   private:
-	// TODO: use one STL container (e.g. std::map) for date -> exchange rate
+	Database _data;
 };
 
 #endif
