@@ -6,7 +6,7 @@
 /*   By: sruff <sruff@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 13:30:20 by sruff             #+#    #+#             */
-/*   Updated: 2026/06/07 19:17:28 by sruff            ###   ########.fr       */
+/*   Updated: 2026/06/07 20:44:51 by sruff            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ int	main(int argc, char **argv)
 		std::cout << "Error: could not open file." << std::endl;
 		return (1);
 	}
-	//if (exchange.loadDatabase("data.csv").empty())
-	//	return (1);
-	//if (!exchange.processInput(argv[1]))
-	//	return (1);
+	if (exchange.loadDatabase("data.csv").empty())
+		return (1);
+	if (!exchange.processInput(argv[1]))
+		return (1);
 	return (0);
 }
